@@ -19,15 +19,18 @@ public class MyWorld extends World
         super(600, 400, 1); 
         prepare();
     }
+    
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
      */
     private void prepare()
     {
-        Floor floor = new Floor();
-        addObject(floor,300,339);
+        Block block = new Block();
+        addObject(block,300,339);
         Engineer engineer = new Engineer();
         addObject(engineer,176,157);
+        Block block2 = new Block();
+        addObject(block2,438,184);
     }
 }

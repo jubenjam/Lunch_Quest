@@ -13,33 +13,48 @@ public class Engineer extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     private int momentum = 0;
+    private int runSpeed = 4;
     public void act()
     {
+        //Move up and down
         setLocation(getX(), getY()-momentum);  
-        if (Greenfoot.isKeyDown("left"))
-        {
-            setLocation(getX()-4, getY());
-        }
-        if (Greenfoot.isKeyDown("right"))
-        {
-            setLocation(getX()+4, getY());
-        }
-
-        Actor floor;
-        floor = getOneIntersectingObject(Floor.class);
-        //gravity makes ball fall faster when not touching floor
-        if(floor == null)
+        Actor block;
+        block = getOneIntersectingObject(Block.class);
+        if(block == null)
         {
             momentum-=1;
         }
         else 
         {   
+            setLocation(getX(), getY()+momentum);
             momentum = 0;
-            if (Greenfoot.isKeyDown("up"))
+            if (Greenfoot.isKeyDown("up") && block.getY()>getY())
             {
                 momentum = 13;
             }
         }
-
+        //Move Left and right
+        boolean left = false;
+        boolean right = false;
+        if (Greenfoot.isKeyDown("left"))
+        {
+            left = true;
+            setLocation(getX()-runSpeed, getY());
+        }
+        if (Greenfoot.isKeyDown("right"))
+        {
+            right = true;
+            setLocation(getX()+runSpeed, getY());
+        }
+        block = getOneIntersectingObject(Block.class);
+        if(block != null)
+        {   
+            if(left){
+                setLocation(getX()+runSpeed, getY());
+            }
+            if(right){
+                setLocation(getX()-runSpeed, getY());
+            }
+        }
     }
 }
