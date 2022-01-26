@@ -14,7 +14,7 @@ public class Engineer extends Actor
      */
     private int momentum = 0;
     private int runSpeed = 4;
-    private boolean collectedLunch = false;
+
     public void act()
     {
         if(((MyWorld)getWorld()).textOnScreen == false){
@@ -66,11 +66,10 @@ public class Engineer extends Actor
                 }
             }
             Actor lunch = getOneIntersectingObject(Lunch.class);
-            if(lunch != null && collectedLunch == false)
+            if(lunch != null)
             {   
                 MyWorld world = (MyWorld)getWorld();
                 world.win();
-                collectedLunch = true;
             }
         }
     }

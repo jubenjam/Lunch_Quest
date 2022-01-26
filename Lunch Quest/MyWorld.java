@@ -15,6 +15,7 @@ public class MyWorld extends World
      */
     
     public boolean textOnScreen = false;
+    public Lunch lunch;
     
     public MyWorld()
     {    
@@ -24,13 +25,27 @@ public class MyWorld extends World
         prepare();
     }
     
-    public void win()
+    public void createGoal(){
+        lunch = new Lunch();
+        addObject(lunch,556,80);
+    }
+    
+    public void createDialogue(String text)
     {
         Dialogue_box dialogue_box = new Dialogue_box();
         addObject(dialogue_box,300,370);
         Profile profile = new Profile();
         addObject(profile,35,365);
-        dialogue_box.setDialogue("I got my lunch! A delicious PB&J sandwich.", profile);
+        dialogue_box.setDialogue(text, profile);
+    }
+    
+    public void win()
+    {
+        createDialogue("I got my lunch! A delicious PB&J sandwich.\nI should probably head back now.");
+        Trigger trigger = new Trigger();
+        trigger.setText("Made it back, but now I'm getting hungry...");
+        addObject(trigger, 45, 340);
+        removeObject(lunch);
     }
     
     /**
@@ -39,14 +54,8 @@ public class MyWorld extends World
      */
     private void prepare()
     {
-        Block block = new Block();
-        addObject(block,300,339);
-        Block block2 = new Block();
-        addObject(block2,438,184);
         Engineer engineer = new Engineer();
         addObject(engineer,45,340);
-        removeObject(block);
-        removeObject(block2);
 
         TopLeft topLeft = new TopLeft();
         addObject(topLeft,15,385);
@@ -89,8 +98,7 @@ public class MyWorld extends World
         TopRight topRight = new TopRight();
         addObject(topRight,585,385);
 
-        Lunch lunch = new Lunch();
-        addObject(lunch,556,72);
+        createGoal();
 
         int row = 280;
         int row2 = row-30;
@@ -167,10 +175,6 @@ public class MyWorld extends World
         Single single = new Single();
         addObject(single,585,310);
         
-        Dialogue_box dialogue_box = new Dialogue_box();
-        addObject(dialogue_box,300,370);
-        Profile profile = new Profile();
-        addObject(profile,35,365);
-        dialogue_box.setDialogue("It's time for lunch! Better go grab my lunch bag.", profile);
+        createDialogue("It's time for lunch! Better go grab my lunch bag.");
     }
 }
