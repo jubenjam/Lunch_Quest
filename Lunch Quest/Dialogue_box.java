@@ -14,7 +14,9 @@ public class Dialogue_box extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     //set the text of the dialogue box
-    public void setDialogue(String test){
+    public Profile profile;
+    
+    public void setDialogue(String test, Profile profileSet){
          GreenfootImage img = new GreenfootImage(600, 75);
          img.setColor(Color.BLUE);
          img.fill();
@@ -22,10 +24,17 @@ public class Dialogue_box extends Actor
          img.setFont(new Font("OptimusPrinceps", false, false , 20));
          img.drawString(test, 90, 20);
          setImage(img);
+         profile = profileSet;
+         ((MyWorld)getWorld()).textOnScreen = true;
     }
     //
     public void act()
     {
-        // Add your action code here.
+        if (Greenfoot.isKeyDown("space"))
+        {                        
+            ((MyWorld)getWorld()).textOnScreen = false;
+            getWorld().removeObject(profile);
+            getWorld().removeObject(this);
+        }
     }
 }
