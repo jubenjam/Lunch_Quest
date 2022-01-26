@@ -32,5 +32,8 @@ public class MyWorld extends World
         addObject(engineer,176,157);
         Block block2 = new Block();
         addObject(block2,438,184);
+        Dialogue_box dialogue = new Dialogue_box();
+        addObject(dialogue,300,370);
+        dialogue.setDialogue("It's time for lunch! Better go grab my lunch bag.");
     }
 }
