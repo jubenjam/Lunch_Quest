@@ -56,5 +56,11 @@ public class Engineer extends Actor
                 setLocation(getX()-runSpeed, getY());
             }
         }
+        Actor lunch = getOneIntersectingObject(Lunch.class);
+        if(lunch != null)
+        {   
+            MyWorld world = (MyWorld)getWorld();
+            world.win();
+        }
     }
 }
