@@ -22,7 +22,7 @@ public class Dialogue_box extends Actor
          img.fill();
          img.setColor(Color.WHITE);
          img.setFont(new Font("OptimusPrinceps", false, false , 20));
-         img.drawString(test, 90, 20);
+         img.drawString("Elmer: " + test, 90, 20);
          setImage(img);
          profile = profileSet;
          ((MyWorld)getWorld()).textOnScreen = true;
@@ -30,7 +30,7 @@ public class Dialogue_box extends Actor
     //
     public void act()
     {
-        if (Greenfoot.isKeyDown("space"))
+        if (((MyWorld)getWorld()).title == false && Greenfoot.isKeyDown("space"))
         {                        
             ((MyWorld)getWorld()).textOnScreen = false;
             getWorld().removeObject(profile);
