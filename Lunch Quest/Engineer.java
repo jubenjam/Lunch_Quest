@@ -13,7 +13,7 @@ public class Engineer extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     private int momentum = 0;
-    private int runSpeed = 4;
+    private int runSpeed = 3;
 
     public void act()
     {

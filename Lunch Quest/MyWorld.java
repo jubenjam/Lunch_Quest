@@ -44,7 +44,7 @@ public class MyWorld extends World
         createDialogue("I got my lunch! A delicious PB&J sandwich.\nI should probably head back now.");
         Trigger trigger = new Trigger();
         trigger.setText("Made it back, but now I'm getting hungry...");
-        addObject(trigger, 45, 340);
+        addObject(trigger, 15, 340);
         removeObject(lunch);
     }
     
@@ -54,9 +54,6 @@ public class MyWorld extends World
      */
     private void prepare()
     {
-        Engineer engineer = new Engineer();
-        addObject(engineer,45,340);
-
         TopLeft topLeft = new TopLeft();
         addObject(topLeft,15,385);
         TopMid topMid = new TopMid();
@@ -175,6 +172,8 @@ public class MyWorld extends World
         Single single = new Single();
         addObject(single,585,310);
         
+        Engineer engineer = new Engineer();
+        addObject(engineer,45,340);
         createDialogue("It's time for lunch! Better go grab my lunch bag.");
     }
 }
