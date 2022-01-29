@@ -6,71 +6,57 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Engineer extends Actor
+public class Engineer extends Mover
 {
+    private String basename = "engineer";
+    
     /**
      * Act - do whatever the Engineer wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    private int momentum = 0;
-    private int runSpeed = 3;
 
+    public Engineer()
+    {
+        super("engineer", "idle");
+        LoadAnimation("idle", 9);
+        LoadAnimation("run", 8);
+        LoadAnimation("jump", 6);
+    }
+    
     public void act()
     {
+        advanceBuffer();       
+        setFrame(currentAnimationKey);
+        
         if(((MyWorld)getWorld()).textOnScreen == false){
-
-            //Move up and down
-            setLocation(getX(), getY()-momentum);  
-            Actor block;
-            block = getOneIntersectingObject(Block.class);
-            if(block == null)
+            nextAction = move();
+            if (nextAction != currentAction)
             {
-                momentum-=1;
-            }
-            else 
-            {   
-                setLocation(getX(), getY()+momentum);
-                momentum = 0;
-                if (Greenfoot.isKeyDown("up") && block.getY()>getY())
+                currentAction = nextAction;
+                switch (currentAction)
                 {
-                    momentum = 13;
+                    case IDLE:  changeAnimation("idle");
+                                // System.out.println("idle");
+                                break;
+                    case RUN:   changeAnimation("run");
+                                // System.out.println("run");
+                                break;
+                    case JUMP:  changeAnimation("jump");
+                                // System.out.println("jump");
+                                break;
                 }
             }
-            //Move Left and right
-            boolean left = false;
-            boolean right = false;
-            if (Greenfoot.isKeyDown("left"))
-            {
-                left = true;
-                setLocation(getX()-runSpeed, getY());
-                if(getX() < 0){
-                    setLocation(0, getY());
-                }
-            }   
-            if (Greenfoot.isKeyDown("right"))
-            {
-                right = true;
-                setLocation(getX()+runSpeed, getY());
-                if(getX() > getWorld().getWidth()){
-                    setLocation(getWorld().getWidth(), getY());
-                }
-            }
-            block = getOneIntersectingObject(Block.class);
-            if(block != null)
-            {   
-                if(left){
-                    setLocation(getX()+runSpeed, getY());
-                }
-                if(right){
-                    setLocation(getX()-runSpeed, getY());
-                }
-            }
-            Actor lunch = getOneIntersectingObject(Lunch.class);
-            if(lunch != null)
-            {   
-                MyWorld world = (MyWorld)getWorld();
-                world.win();
-            }
+            checkWin();
+        }
+    }
+    
+    public void checkWin()
+    {
+        Actor lunch = getOneIntersectingObject(Lunch.class);
+        if(lunch != null)
+        {   
+            MyWorld world = (MyWorld)getWorld();
+            world.win();
         }
     }
 }
