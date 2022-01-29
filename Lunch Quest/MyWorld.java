@@ -17,6 +17,7 @@ public class MyWorld extends World
     public boolean textOnScreen = false;
     public boolean title = true;
     public Lunch lunch;
+    public int level = 1;
     
     public MyWorld()
     {    
@@ -29,6 +30,10 @@ public class MyWorld extends World
     public void createGoal(){
         lunch = new Lunch();
         addObject(lunch,556,80);
+        LevelPrompt levelPrompt = new LevelPrompt();
+        levelPrompt.setText(level);
+        addObject(levelPrompt,300, 200);
+        level+=1;
     }
     
     public void createDialogue(String text)
@@ -91,7 +96,6 @@ public class MyWorld extends World
     private void prepare()
     {
         ground();
-        createGoal();
         platform(16, 250, 16);
         
         Console console = new Console();

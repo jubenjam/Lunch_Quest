@@ -33,6 +33,7 @@ public class TitleScreen extends Actor
         {                        
             while(Greenfoot.isKeyDown("space")){}
             ((MyWorld)getWorld()).title = false;
+            ((MyWorld)getWorld()).createGoal();
             getWorld().removeObject(this);
         }    
     }
