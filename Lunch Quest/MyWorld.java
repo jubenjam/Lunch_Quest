@@ -17,7 +17,7 @@ public class MyWorld extends World
     public boolean textOnScreen = false;
     public boolean title = true;
     public Lunch lunch;
-    public int level = 1;
+    public int level = 0;
     
     public MyWorld()
     {    
@@ -28,12 +28,12 @@ public class MyWorld extends World
     }
     
     public void createGoal(){
+        level+=1;
         lunch = new Lunch();
         addObject(lunch,556,80);
         LevelPrompt levelPrompt = new LevelPrompt();
         levelPrompt.setText(level);
         addObject(levelPrompt,300, 200);
-        level+=1;
     }
     
     public void createDialogue(String text)
@@ -46,8 +46,25 @@ public class MyWorld extends World
     }
     
     public void win()
-    {
-        createDialogue("I got my lunch! A delicious PB&J sandwich.\nI should probably head back now.");
+    {   
+        if(level == 1){
+            createDialogue("I got my lunch! A delicious PB&J sandwich.\nI should probably head back now.");
+        }
+        if(level == 2){
+            createDialogue("I got my lunch! A delicious large pepperoni pizza.\nI should probably head back now.");
+        }
+        if(level == 3){
+            createDialogue("I got my lunch! An entire thanksgiving feast.\nI should probably head back now.");
+        }
+        if(level == 4){
+            createDialogue("I got my lunch! A...bottle of glue?\nI should probably head back now.");
+        }
+        if(level == 5){
+            createDialogue("I got my lunch! It's... the entire city of\nWashington DC... I should probably head back now.");
+        }
+        if(level == 6){
+            createDialogue("I got my lunch! It's... wait a second. It's empty!\nNOOOOOOOOOOOOOOOOOOOOOOOOOOOO!");
+        }
         Trigger trigger = new Trigger();
         trigger.setText("Made it back, but now I'm getting hungry...");
         addObject(trigger, 15, 340);
