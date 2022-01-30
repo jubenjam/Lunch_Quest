@@ -59,4 +59,11 @@ public class Engineer extends Mover
             world.win();
         }
     }
+    
+    public void die()
+    {
+        MyWorld world = (MyWorld)getWorld();
+        setLocation(45,340);
+        world.createDialogue("Ouch! I need to be more careful.");
+    }
 }

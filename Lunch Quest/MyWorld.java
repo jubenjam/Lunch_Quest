@@ -132,6 +132,21 @@ public class MyWorld extends World
         addObject(botRight,x,y+32);
     }
     
+    private void platform2(int x, int y, int width){
+        Left left = new Left();
+        addObject(left,x,y);
+        int i=1;
+        x+=32;
+        while(i < width - 1){
+            Mid mid = new Mid();
+            addObject(mid,x,y);
+            i+=1;
+            x+=32;
+        }
+        Right right = new Right();
+        addObject(right,x,y);
+    }
+    
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
@@ -140,11 +155,14 @@ public class MyWorld extends World
     {
         ground();
         platform(16, 250, 16);
-        
+        platform2(96, 140, 16);
+
         Console console = new Console();
         addObject(console,15,355);
         Single single = new Single();
         addObject(single,585,310);
+        Single single2 = new Single();
+        addObject(single2,16,180);
         
         engineer = new Engineer();
         addObject(engineer,45,340);
