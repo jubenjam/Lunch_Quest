@@ -34,6 +34,11 @@ public class Dialogue_box extends Actor
         {                        
             ((MyWorld)getWorld()).textOnScreen = false;
             getWorld().removeObject(profile);
+            if (((MyWorld)getWorld()).level == 6 && ((MyWorld)getWorld()).finaldia == true){
+                while(Greenfoot.isKeyDown("space")){}
+                ((MyWorld)getWorld()).reset();
+                ((MyWorld)getWorld()).finaldia = false;
+            }
             getWorld().removeObject(this);
         }
     }

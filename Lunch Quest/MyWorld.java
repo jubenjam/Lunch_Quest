@@ -18,6 +18,8 @@ public class MyWorld extends World
     public boolean title = true;
     public Lunch lunch;
     public int level = 0;
+    public boolean finaldia = false;
+    private Engineer engineer;
     static GreenfootSound music = new GreenfootSound("AcidJazz.mp3");
 
     public MyWorld()
@@ -35,7 +37,12 @@ public class MyWorld extends World
         LevelPrompt levelPrompt = new LevelPrompt();
         levelPrompt.setText(level);
         addObject(levelPrompt,300, 200);
-        music.playLoop();
+        if(level != 6){
+            music.playLoop();
+        }
+        else{
+            music.stop();
+        }
     }
     
     public void createDialogue(String text)
@@ -66,11 +73,28 @@ public class MyWorld extends World
         }
         if(level == 6){
             createDialogue("I got my lunch! It's... wait a second. It's empty!\nNOOOOOOOOOOOOOOOOOOOOOOOOOOOO!");
+            finaldia = true;
         }
-        Trigger trigger = new Trigger();
-        trigger.setText("Made it back, but now I'm getting hungry...");
-        addObject(trigger, 15, 340);
+        if(level != 6){
+            Trigger trigger = new Trigger();
+            trigger.setText("Made it back, but now I'm getting hungry...");
+            addObject(trigger, 15, 340);
+        }
         removeObject(lunch);
+    }
+    
+    public void skip(){
+        level = 5;
+    }
+    
+    public void reset()
+    {
+        engineer.setLocation(45, 340);
+        createDialogue("It's time for lunch! Better go grab my lunch bag.");
+        TitleScreen title = new TitleScreen();
+        title.setText();
+        level = 0;
+        addObject(title, 300, 200);
     }
     
     private void ground()
@@ -122,7 +146,7 @@ public class MyWorld extends World
         Single single = new Single();
         addObject(single,585,310);
         
-        Engineer engineer = new Engineer();
+        engineer = new Engineer();
         addObject(engineer,45,340);
         createDialogue("It's time for lunch! Better go grab my lunch bag.");
         
