@@ -29,6 +29,9 @@ public class Mover extends AnimatedActor
     public int nextAction = IDLE;
     private int momentum = 0;
     private int runSpeed = 3;
+        
+    static GreenfootSound jump = new GreenfootSound("Jump.wav");
+    static GreenfootSound run = new GreenfootSound("Run.wav");
     
     public Mover(String basename, String startingKey)
     {
@@ -89,6 +92,7 @@ public class Mover extends AnimatedActor
         if (Greenfoot.isKeyDown("left"))
         {
             action = RUN;
+            run.playLoop();
             facingL = true;
             setLocation(getX()-runSpeed, getY());
             if(getX() < 0){
@@ -98,6 +102,7 @@ public class Mover extends AnimatedActor
         if (Greenfoot.isKeyDown("right"))
         {
             action = RUN;
+            run.playLoop();
             facingL = false;
             setLocation(getX()+runSpeed, getY());
             if(getX() > getWorld().getWidth()){
@@ -136,7 +141,11 @@ public class Mover extends AnimatedActor
             {
                 momentum = 13;
                 action = JUMP;
+                jump.play();
             }
+        }
+        if(action != RUN){
+            run.stop();
         }
         
         return action;

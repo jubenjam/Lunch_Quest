@@ -18,7 +18,8 @@ public class MyWorld extends World
     public boolean title = true;
     public Lunch lunch;
     public int level = 0;
-    
+    static GreenfootSound music = new GreenfootSound("AcidJazz.mp3");
+
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -34,6 +35,7 @@ public class MyWorld extends World
         LevelPrompt levelPrompt = new LevelPrompt();
         levelPrompt.setText(level);
         addObject(levelPrompt,300, 200);
+        music.playLoop();
     }
     
     public void createDialogue(String text)
