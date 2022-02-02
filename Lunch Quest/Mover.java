@@ -40,13 +40,16 @@ public class Mover extends AnimatedActor
     
     public void act()
     {
-        advanceBuffer();       
-        setFrame(currentAnimationKey);
+        if (!myWorld.textOnScreen)
+        {
+            advanceImage();       
+            setFrame(currentAnimationKey);
+        }
     }
     
-    public void advanceBuffer()
+    public void advanceImage()
     {
-        if (animateBuffer())
+        if (advanceBuffer())
         {
             if (facingL)
                 currentImage = (currentImage + 1) % animations.get(currentAnimationKey + "L").length;
@@ -125,7 +128,6 @@ public class Mover extends AnimatedActor
         //Move up and down
         setLocation(getX(), getY()-momentum); // gravity
         block = getOneIntersectingObject(Block.class);
-        System.out.println(getY());
         if(block == null) // mid-air
         {
             momentum -= 1;

@@ -11,6 +11,7 @@ public class AnimatedActor extends Actor
 {
     public Dictionary<String, GreenfootImage[]> animations = new Hashtable<String, GreenfootImage[]>();
     public String currentAnimationKey;
+    public MyWorld myWorld;
     
     public int currentImage = 0;
     private int imageBuffer = 5;
@@ -21,6 +22,24 @@ public class AnimatedActor extends Actor
         this.basename = basename;
         
         currentAnimationKey = startingKey;
+    }
+        
+    protected void addedToWorld(World world)
+    {
+        myWorld = (MyWorld)world;
+    }
+    
+    /**
+     * Act - do whatever the AnimatedActor wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public void act()
+    {
+        if (!myWorld.textOnScreen)
+        {
+            advanceImage();       
+            setFrame(currentAnimationKey);
+        }
     }
     
     /**
@@ -43,25 +62,15 @@ public class AnimatedActor extends Actor
         animations.put(key + "R", animR);
     }
     
-    /**
-     * Act - do whatever the AnimatedActor wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
+    public void advanceImage()
     {
-        advanceBuffer();       
-        setFrame(currentAnimationKey);
-    }
-    
-    public void advanceBuffer()
-    {
-        if (animateBuffer())
+        if (advanceBuffer())
         {
             currentImage = (currentImage + 1) % animations.get(currentAnimationKey).length;
         }
     }
     
-    public boolean animateBuffer() 
+    public boolean advanceBuffer() 
     {
         if (imageBuffer < 1)
         {

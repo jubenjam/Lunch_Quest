@@ -9,12 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Engineer extends Mover
 {
     private String basename = "engineer";
-
-    /**
-     * Act - do whatever the Engineer wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-
+    
     public Engineer()
     {
         super("engineer", "idle");
@@ -25,10 +20,11 @@ public class Engineer extends Mover
     
     public void act()
     {
-        advanceBuffer();       
-        setFrame(currentAnimationKey);
+        if (!myWorld.textOnScreen)
+        {
+            advanceImage();   
+            setFrame(currentAnimationKey);
         
-        if(((MyWorld)getWorld()).textOnScreen == false){
             nextAction = move();
             if (nextAction != currentAction)
             {
