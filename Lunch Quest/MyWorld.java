@@ -19,7 +19,7 @@ public class MyWorld extends World
     public Lunch lunch;
     public int level = 0;
     public boolean finaldia = false;
-    private Engineer engineer;
+    public Engineer engineer;
     static GreenfootSound music = new GreenfootSound("AcidJazz.mp3");
 
     public MyWorld()
@@ -33,7 +33,7 @@ public class MyWorld extends World
     public void createGoal(){
         level+=1;
         lunch = new Lunch();
-        addObject(lunch,556,80);
+        addObject(lunch,100,200);
         LevelPrompt levelPrompt = new LevelPrompt();
         levelPrompt.setText(level);
         addObject(levelPrompt,300, 200);
@@ -57,19 +57,19 @@ public class MyWorld extends World
     public void win()
     {   
         if(level == 1){
-            createDialogue("I got my lunch! A delicious PB&J sandwich.\nI should probably head back now.");
+            createDialogue("I got my lunch! A delicious PB&J sandwich.\nI should probably head to a table to eat.");
         }
         if(level == 2){
-            createDialogue("I got my lunch! A delicious large pepperoni pizza.\nI should probably head back now.");
+            createDialogue("I got my lunch! A delicious large pepperoni pizza.\nI should probably head to a table to eat.");
         }
         if(level == 3){
-            createDialogue("I got my lunch! An entire thanksgiving feast.\nI should probably head back now.");
+            createDialogue("I got my lunch! An entire thanksgiving feast.\nI should probably head to a table to eat.");
         }
         if(level == 4){
-            createDialogue("I got my lunch! A...bottle of glue?\nI should probably head back now.");
+            createDialogue("I got my lunch! A...bottle of glue?\nI should probably head back to a table to eat.");
         }
         if(level == 5){
-            createDialogue("I got my lunch! It's... the entire city of\nWashington DC... I should probably head back now.");
+            createDialogue("I got my lunch! It's... the entire city of\nWashington DC... I should probably head to a table to eat.");
         }
         if(level == 6){
             createDialogue("I got my lunch! It's... wait a second. It's empty!\nNOOOOOOOOOOOOOOOOOOOOOOOOOOOO!");
@@ -77,8 +77,8 @@ public class MyWorld extends World
         }
         if(level != 6){
             Trigger trigger = new Trigger();
-            trigger.setText("Made it back, but now I'm getting hungry...");
-            addObject(trigger, 15, 340);
+            trigger.setText("It's another day, and now I'm getting hungry...");
+            addObject(trigger, 500, 100);
         }
         removeObject(lunch);
     }
@@ -91,10 +91,11 @@ public class MyWorld extends World
     {
         engineer.setLocation(45, 340);
         createDialogue("It's time for lunch! Better go grab my lunch bag.");
-        TitleScreen title = new TitleScreen();
-        title.setText();
+        TitleScreen titleScreen = new TitleScreen();
+        titleScreen.setText();
+        title = true;
         level = 0;
-        addObject(title, 300, 200);
+        addObject(titleScreen, 300, 200);
     }
     
     private void ground()
@@ -163,6 +164,8 @@ public class MyWorld extends World
         addObject(single,585,310);
         Single single2 = new Single();
         addObject(single2,16,180);
+        Table table = new Table();
+        addObject(table,500,100);
         
         engineer = new Engineer();
         addObject(engineer,45,340);

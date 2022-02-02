@@ -22,9 +22,11 @@ public class TitleScreen extends Actor
          img.drawString("Elmer the Hungry Engineer", 120, 100);
          img.setFont(new Font("OptimusPrinceps", false, false , 20));
          img.drawString("by Juan Benjamin and Barrett Lo", 150, 130);
-         img.drawString("Move Elmer using the arrow keys", 145, 190);
-         img.drawString("Press Space to close dialogue boxes", 130, 210);
-         img.drawString("Press Space to continue", 190, 230);         
+         img.drawString("Help Elmer get the free lunch offered by", 120, 190);
+         img.drawString("his employers. Nothing suspicious here...", 115, 210);        
+         img.drawString("Move Elmer using the arrow keys", 145, 250);
+         img.drawString("Press Space to close dialogue boxes", 130, 270);
+         img.drawString("Press Space to continue", 190, 290);        
          setImage(img);
     }
     public void act()

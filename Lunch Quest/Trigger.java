@@ -23,6 +23,7 @@ public class Trigger extends Actor
         {
             ((MyWorld)getWorld()).createDialogue(text);
             ((MyWorld)getWorld()).createGoal();
+            ((MyWorld)getWorld()).engineer.setLocation(45, 340);
             getWorld().removeObject(this);
         }
         
