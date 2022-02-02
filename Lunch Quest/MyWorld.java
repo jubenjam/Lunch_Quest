@@ -91,10 +91,11 @@ public class MyWorld extends World
     {
         engineer.setLocation(45, 340);
         createDialogue("It's time for lunch! Better go grab my lunch bag.");
-        TitleScreen title = new TitleScreen();
-        title.setText();
+        TitleScreen titleScreen = new TitleScreen();
+        titleScreen.setText();
+        title = true;
         level = 0;
-        addObject(title, 300, 200);
+        addObject(titleScreen, 300, 200);
     }
     
     private void ground()
