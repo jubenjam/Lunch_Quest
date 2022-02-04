@@ -28,6 +28,26 @@ public class Laser extends AnimatedActor
     
     private Actor player;
     
+    public Laser(int startDelay, int onDuration, int offDuration)
+    {
+        super("laser", "off");
+        LoadAnimation("off", 1);
+        LoadAnimation("turn-on", 5);
+        LoadAnimation("almost-on", 2);
+        LoadAnimation("active", 2);
+        LoadAnimation("almost-off", 4);
+        LoadAnimation("turn-off", 3);
+        
+        keyList = new String[]{ "off", "turn-on", "almost-on", "active", "almost-off", "turn-off" };
+        _keyCounter = 0;
+        
+        startDelay = startDelay;
+        this.onDuration = onDuration;
+        onBuffer = onDuration;
+        this.offDuration = offDuration;
+        offBuffer = offDuration;
+    }
+    
     public Laser()
     {
         super("laser", "off");
@@ -48,26 +68,6 @@ public class Laser extends AnimatedActor
         offBuffer = offDuration;
     }
     
-    public Laser(int onDuration, int offDuration)
-    {
-        super("laser", "off");
-        LoadAnimation("off", 1);
-        LoadAnimation("turn-on", 5);
-        LoadAnimation("almost-on", 2);
-        LoadAnimation("active", 2);
-        LoadAnimation("almost-off", 4);
-        LoadAnimation("turn-off", 3);
-        
-        keyList = new String[]{ "off", "turn-on", "almost-on", "active", "almost-off", "turn-off" };
-        _keyCounter = 0;
-        
-        startDelay = 0;
-        this.onDuration = onDuration;
-        onBuffer = onDuration;
-        this.offDuration = offDuration;
-        offBuffer = offDuration;
-    }
-    
     public void act()
     {
         if (!myWorld.textOnScreen)
@@ -83,7 +83,7 @@ public class Laser extends AnimatedActor
     
     public void advanceImage()
     {
-        if (advanceBuffer())
+        if (advanceBuffer() && !delayStart())
         {
             // _keyCounter = 0 == "off"
             if (_keyCounter == OFF) {
@@ -106,6 +106,19 @@ public class Laser extends AnimatedActor
                 currentImage++;
             }
         }
+    }
+    
+    /**
+     *  Returns true while delaying, false when delay is up.
+     */
+    private boolean delayStart()
+    {
+        if (startDelay == 0) {
+            return false;
+        }
+        
+        startDelay--;
+        return true;
     }
     
     private boolean advanceOffBuffer()

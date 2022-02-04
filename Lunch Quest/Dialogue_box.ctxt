@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Dialogue_box
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Dialogue_box\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ Dialogue_box\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=test\ profileSet
 comment1.target=void\ setDialogue(java.lang.String,\ Profile)
 comment2.params=
