@@ -21,7 +21,7 @@ public class Dialogue_box extends Actor
          img.setColor(Color.BLUE);
          img.fill();
          img.setColor(Color.WHITE);
-         img.setFont(new Font("Dogica Pixel", false, false , 20));
+         img.setFont(new Font("Dogica Pixel", false, false , 18));
          img.drawString("Elmer: " + test, 90, 20);
          setImage(img);
          profile = profileSet;
