@@ -14,8 +14,8 @@ public class AnimatedActor extends Actor
     public MyWorld myWorld;
     
     public int currentImage = 0;
-    private int imageBuffer = 5;
-    private String basename;
+    public int imageBuffer = 5;
+    public String basename;
     
     public AnimatedActor(String basename, String startingKey)
     {
@@ -48,18 +48,14 @@ public class AnimatedActor extends Actor
     public void LoadAnimation(String key, int numOfImages)
     {
         // make Load() methods for each sprite animation
-        GreenfootImage[] animL = new GreenfootImage[numOfImages];
-        GreenfootImage[] animR = new GreenfootImage[numOfImages];
+        GreenfootImage[] anim = new GreenfootImage[numOfImages];
         String fp_basenameKey = basename + "-" + key;
         
         for(int i = 0; i < numOfImages; i++) {
-            animL[i] = new GreenfootImage("./images/" + fp_basenameKey + "/" + fp_basenameKey + "-" + Integer.toString(i) + ".png");
-            animR[i] = new GreenfootImage(animL[i]);
-            animL[i].mirrorHorizontally();
+            anim[i] = new GreenfootImage("./images/" + fp_basenameKey + "/" + fp_basenameKey + "-" + Integer.toString(i) + ".png");
         }
         
-        animations.put(key + "L", animL);
-        animations.put(key + "R", animR);
+        animations.put(key, anim);
     }
     
     public void advanceImage()
