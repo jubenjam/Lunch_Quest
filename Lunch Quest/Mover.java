@@ -47,6 +47,26 @@ public class Mover extends AnimatedActor
         }
     }
     
+    /**
+     * Must be called at the instatiation!
+     */
+    public void LoadAnimation(String key, int numOfImages)
+    {
+        // make Load() methods for each sprite animation
+        GreenfootImage[] animR = new GreenfootImage[numOfImages];
+        GreenfootImage[] animL = new GreenfootImage[numOfImages];
+        String fp_basenameKey = basename + "-" + key;
+        
+        for(int i = 0; i < numOfImages; i++) {
+            animR[i] = new GreenfootImage("./images/" + fp_basenameKey + "/" + fp_basenameKey + "-" + Integer.toString(i) + ".png");
+            animL[i] = new GreenfootImage(animR[i]);
+            animL[i].mirrorHorizontally();
+        }
+        
+        animations.put(key + "L", animL);
+        animations.put(key + "R", animR);
+    }
+    
     public void advanceImage()
     {
         if (advanceBuffer())
