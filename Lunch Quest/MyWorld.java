@@ -171,9 +171,9 @@ public class MyWorld extends World
         Single single2 = new Single();
         addObject(single2,16,180);
         Table table = new Table();
-        addObject(table,500,100);
+        addObject(table,500,73);
         Laser laser = new Laser();
-        addObject(laser,414,334);
+        addObject(laser,414,305);
 
         engineer = new Engineer();
         addObject(engineer,45,340);
