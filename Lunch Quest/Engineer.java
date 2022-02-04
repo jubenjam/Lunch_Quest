@@ -43,6 +43,10 @@ public class Engineer extends Mover
                 }
             }
             checkWin();
+            Actor spike = getOneIntersectingObject(Spike.class);
+            if(spike!=null){
+                die();
+            }
         }
     }
     

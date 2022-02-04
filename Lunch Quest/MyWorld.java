@@ -20,6 +20,7 @@ public class MyWorld extends World
     public int level = 0;
     public boolean finaldia = false;
     public Engineer engineer;
+    public Timer timer;
     static GreenfootSound music = new GreenfootSound("AcidJazz.mp3");
 
     public MyWorld()
@@ -80,7 +81,7 @@ public class MyWorld extends World
         if(level != 6){
             Trigger trigger = new Trigger();
             trigger.setText("It's another day, and now I'm getting hungry...");
-            addObject(trigger, 500, 100);
+            addObject(trigger, 500, 73);
         }
         removeObject(lunch);
     }
@@ -97,6 +98,7 @@ public class MyWorld extends World
         titleScreen.setText();
         title = true;
         level = 0;
+        timer.reset();
         addObject(titleScreen, 300, 200);
     }
     
@@ -157,8 +159,10 @@ public class MyWorld extends World
     private void prepare()
     {
         ground();
-        platform(16, 250, 16);
-        platform2(96, 140, 16);
+        platform2(16, 250, 16);
+        platform2(96, 113, 4);
+        platform2(288, 113, 4);
+        platform2(480, 113, 4);
 
         Console console = new Console();
         addObject(console,15,355);
@@ -178,5 +182,8 @@ public class MyWorld extends World
         TitleScreen title = new TitleScreen();
         title.setText();
         addObject(title, 300, 200);
+        
+        timer = new Timer();
+        addObject(timer, 50, 30);
     }
 }
