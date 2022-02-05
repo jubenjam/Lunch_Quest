@@ -107,12 +107,14 @@ public class MyWorld extends World
                         LaserBuilder(20, 20, 20, 96,168);
                         break;
             
-            case 4:     LaserBuilder(0, 20, 15, 45,305);
-                        LaserBuilder(0, 20, 15, 414,305);
-                        LaserBuilder(0, 20, 20, 484,168);
-                        LaserBuilder(0, 20, 20, 388,168);
-                        LaserBuilder(0, 20, 20, 192,168);
-                        LaserBuilder(20, 20, 20, 96,168);
+            case 4:     LaserBuilder(0, 15, 15, 45,305);
+                        LaserBuilder(0, 15, 15, 414,305);
+                        LaserBuilder(0, 15, 15, 484,168);
+                        LaserBuilder(0, 15, 15, 388,168);
+                        LaserBuilder(10, 15, 15, 356,168);
+                        LaserBuilder(20, 15, 15, 324,168);
+                        LaserBuilder(0, 15, 15, 192,168);
+                        LaserBuilder(20, 15, 15, 96,168);
                         List<Left> list = getObjectsAt(288, 113, Left.class);
                         if(!list.isEmpty()){
                             removeObject(list.get(0));
@@ -121,12 +123,17 @@ public class MyWorld extends World
                         }
                         break;
                         
-            case 5:     LaserBuilder(0, 20, 15, 45,305);
-                        LaserBuilder(0, 20, 15, 414,305);
-                        LaserBuilder(0, 20, 20, 484,168);
-                        LaserBuilder(0, 20, 20, 388,168);
-                        LaserBuilder(0, 20, 20, 192,168);
-                        LaserBuilder(20, 20, 20, 96,168);
+            case 5:     LaserBuilder(0, 10, 10, 45,305);
+                        LaserBuilder(5, 10, 10, 77,305);
+                        LaserBuilder(10, 10, 10, 109,305);
+                        LaserBuilder(15, 10, 10, 141,305);
+                        LaserBuilder(0, 15, 15, 414,305);
+                        LaserBuilder(0, 15, 15, 484,168);
+                        LaserBuilder(0, 15, 15, 388,168);
+                        LaserBuilder(10, 15, 15, 356,168);
+                        LaserBuilder(20, 15, 15, 324,168);
+                        LaserBuilder(0, 15, 15, 192,168);
+                        LaserBuilder(20, 15, 15, 96,168);
                         List<Left> list2 = getObjectsAt(288, 218, Left.class);
                         if(!list2.isEmpty()){
                             removeObject(list2.get(0));
@@ -198,8 +205,17 @@ public class MyWorld extends World
     
     public void skip(){
         level += 1;
+        if(level > 6)
+            level = 1;
         eraseLasers();
         createLasers();
+        if(level != 6){
+            music.playLoop();
+        }
+        else{
+            music.stop();
+        }
+        
     }
     
     public void reset()
