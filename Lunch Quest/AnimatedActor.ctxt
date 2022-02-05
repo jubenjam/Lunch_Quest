@@ -1,16 +1,16 @@
 #BlueJ class context
 comment0.target=AnimatedActor
-comment0.text=\n\ Write\ a\ description\ of\ class\ AnimatedActor\ here.\n\ \n\ @author\ Barrett\ Lo\n\ @version\ 0.1\ (January\ 2022)\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ AnimatedActor\ here.\r\n\ \r\n\ @author\ Barrett\ Lo\r\n\ @version\ 0.1\ (January\ 2022)\r\n
 comment1.params=basename\ startingKey
 comment1.target=AnimatedActor(java.lang.String,\ java.lang.String)
 comment2.params=world
 comment2.target=void\ addedToWorld(greenfoot.World)
 comment3.params=
 comment3.target=void\ act()
-comment3.text=\n\ Act\ -\ do\ whatever\ the\ AnimatedActor\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment3.text=\r\n\ Act\ -\ do\ whatever\ the\ AnimatedActor\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
 comment4.params=key\ numOfImages
 comment4.target=void\ LoadAnimation(java.lang.String,\ int)
-comment4.text=\n\ Must\ be\ called\ at\ the\ instatiation\!\n
+comment4.text=\r\n\ Must\ be\ called\ at\ the\ instatiation\!\r\n
 comment5.params=
 comment5.target=void\ advanceImage()
 comment6.params=

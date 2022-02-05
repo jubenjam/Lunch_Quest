@@ -41,7 +41,7 @@ public class Laser extends AnimatedActor
         keyList = new String[]{ "off", "turn-on", "almost-on", "active", "almost-off", "turn-off" };
         _keyCounter = 0;
         
-        startDelay = startDelay;
+        this.startDelay = startDelay;
         this.onDuration = onDuration;
         onBuffer = onDuration;
         this.offDuration = offDuration;

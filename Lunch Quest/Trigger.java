@@ -21,8 +21,8 @@ public class Trigger extends Actor
         Actor man = getOneIntersectingObject(Engineer.class);
         if(man != null)
         {
-            ((MyWorld)getWorld()).createDialogue(text);
             ((MyWorld)getWorld()).createGoal();
+            ((MyWorld)getWorld()).createDialogue(text);
             ((MyWorld)getWorld()).engineer.setLocation(45, 340);
             getWorld().removeObject(this);
         }

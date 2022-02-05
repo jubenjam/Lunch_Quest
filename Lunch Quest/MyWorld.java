@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.*;
 
 /**
  * Write a description of class MyWorld here.
@@ -22,6 +23,8 @@ public class MyWorld extends World
     public Engineer engineer;
     public Timer timer;
     static GreenfootSound music = new GreenfootSound("AcidJazz.mp3");
+    
+    private List<Laser> laserList;
 
     public MyWorld()
     {    
@@ -33,6 +36,8 @@ public class MyWorld extends World
     
     public void createGoal(){
         level+=1;
+        eraseLasers();
+        createLasers();
         lunch = new Lunch();
         addObject(lunch,100,200);
         LevelPrompt levelPrompt = new LevelPrompt();
@@ -44,6 +49,111 @@ public class MyWorld extends World
         else{
             music.stop();
         }
+    }
+    
+    private void LaserBuilder(int delay, int on, int off, int x, int y){
+        Laser laser = new Laser(delay, on, off);
+        laserList.add(laser);
+        addObject(laser,x,y);
+    }
+    
+    public void createLasers(){
+        switch (level) {
+            case 1:     LaserBuilder(0, 20, 20, 414,305);
+                        LaserBuilder(0, 20, 20, 340,168);
+                        LaserBuilder(20, 20, 20,144,168);
+                        List<Left> listA = getObjectsAt(288, 113, Left.class);
+                        if(listA.isEmpty()){
+                            Left left = new Left();
+                            addObject(left, 288, 113);
+                        }
+                        List<Left> listB = getObjectsAt(288, 218, Left.class);
+                        if(!listB.isEmpty()){
+                            removeObject(listB.get(0));
+                        }
+                        List<Mid> listC = getObjectsAt(272, 250, Mid.class);
+                        if(listC.isEmpty()){
+                            Mid mid = new Mid();
+                            addObject(mid, 272, 250);
+                        }
+                        List<Mid> listD = getObjectsAt(304, 250, Mid.class);
+                        if(listD.isEmpty()){
+                            Mid mid = new Mid();
+                            addObject(mid, 304, 250);
+                        }
+                        List<Mid> listE = getObjectsAt(272, 353, Mid.class);
+                        if(!listE.isEmpty()){
+                            removeObject(listE.get(0));
+                        }
+                        List<Mid> listF = getObjectsAt(304, 353, Mid.class);
+                        if(!listF.isEmpty()){
+                            removeObject(listF.get(0));
+                        }
+                        break;
+            
+            case 2:     LaserBuilder(0, 20, 20, 414,305);
+                        LaserBuilder(0, 20, 20, 388,168);
+                        LaserBuilder(20, 20, 20, 292,168);
+                        LaserBuilder(0, 20, 20, 192,168);
+                        LaserBuilder(20, 20, 20, 96,168);
+                        break;
+                        
+            case 3:     LaserBuilder(0, 20, 15, 45,305);
+                        LaserBuilder(0, 20, 15, 414,305);
+                        LaserBuilder(0, 20, 20, 484,168);
+                        LaserBuilder(0, 20, 20, 388,168);
+                        LaserBuilder(20, 20, 20, 288,168);
+                        LaserBuilder(0, 20, 20, 192,168);
+                        LaserBuilder(20, 20, 20, 96,168);
+                        break;
+            
+            case 4:     LaserBuilder(0, 20, 15, 45,305);
+                        LaserBuilder(0, 20, 15, 414,305);
+                        LaserBuilder(0, 20, 20, 484,168);
+                        LaserBuilder(0, 20, 20, 388,168);
+                        LaserBuilder(0, 20, 20, 192,168);
+                        LaserBuilder(20, 20, 20, 96,168);
+                        List<Left> list = getObjectsAt(288, 113, Left.class);
+                        if(!list.isEmpty()){
+                            removeObject(list.get(0));
+                            Left left = new Left();
+                            addObject(left, 288, 218);
+                        }
+                        break;
+                        
+            case 5:     LaserBuilder(0, 20, 15, 45,305);
+                        LaserBuilder(0, 20, 15, 414,305);
+                        LaserBuilder(0, 20, 20, 484,168);
+                        LaserBuilder(0, 20, 20, 388,168);
+                        LaserBuilder(0, 20, 20, 192,168);
+                        LaserBuilder(20, 20, 20, 96,168);
+                        List<Left> list2 = getObjectsAt(288, 218, Left.class);
+                        if(!list2.isEmpty()){
+                            removeObject(list2.get(0));
+                        }
+                        List<Mid> list3 = getObjectsAt(272, 250, Mid.class);
+                        if(!list3.isEmpty()){
+                            removeObject(list3.get(0));
+                            Mid mid = new Mid();
+                            addObject(mid, 272, 353);
+                        }
+                        List<Mid> list4 = getObjectsAt(304, 250, Mid.class);
+                        if(!list4.isEmpty()){
+                            removeObject(list4.get(0));
+                            Mid mid = new Mid();
+                            addObject(mid, 304, 353);
+                        }
+                        break;
+                        
+            default:    break;
+        }
+    }
+    
+    public void eraseLasers(){
+        for (Laser laser : laserList){
+            removeObject(laser);
+        }
+        laserList.clear();
     }
     
     public void createDialogue(String text)
@@ -87,7 +197,9 @@ public class MyWorld extends World
     }
     
     public void skip(){
-        level = 5;
+        level += 1;
+        eraseLasers();
+        createLasers();
     }
     
     public void reset()
@@ -158,6 +270,8 @@ public class MyWorld extends World
      */
     private void prepare()
     {
+        laserList = new ArrayList<Laser>();
+
         ground();
         platform2(16, 250, 16);
         platform2(96, 113, 4);
@@ -172,9 +286,7 @@ public class MyWorld extends World
         addObject(single2,16,180);
         Table table = new Table();
         addObject(table,500,73);
-        Laser laser = new Laser();
-        addObject(laser,414,305);
-
+        
         engineer = new Engineer();
         addObject(engineer,45,340);
         createDialogue("It's time for lunch! Better go grab my lunch bag.");
