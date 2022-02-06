@@ -31,7 +31,7 @@ public class Mover extends AnimatedActor
     private int runSpeed = 3;
         
     static GreenfootSound jump = new GreenfootSound("Jump.wav");
-    static GreenfootSound run = new GreenfootSound("Run.wav");
+    public static GreenfootSound run = new GreenfootSound("Run.wav");
     
     public Mover(String basename, String startingKey)
     {
@@ -45,6 +45,7 @@ public class Mover extends AnimatedActor
             advanceImage();       
             setFrame(currentAnimationKey);
         }
+        
     }
     
     /**

@@ -218,6 +218,15 @@ public class MyWorld extends World
         
     }
     
+    public void endScreen()
+    {
+        textOnScreen = true;
+        EndScreen end = new EndScreen();
+        title = true;
+        end.setText(timer.getMinutes(), timer.getSeconds());
+        addObject(end, 300, 200);
+    }
+    
     public void reset()
     {
         engineer.setLocation(45, 340);
@@ -227,6 +236,8 @@ public class MyWorld extends World
         title = true;
         level = 0;
         timer.reset();
+        removeObject(timer);
+        showText("", 50, 30);
         addObject(titleScreen, 300, 200);
     }
     
