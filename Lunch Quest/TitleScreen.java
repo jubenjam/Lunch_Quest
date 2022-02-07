@@ -15,8 +15,11 @@ public class TitleScreen extends Actor
      */
     
     public void setText(){
-         GreenfootImage img = new GreenfootImage(600, 400);
+         //GreenfootImage img = new GreenfootImage(600, 400);
+         GreenfootImage img = new GreenfootImage("title-screen.png");
+         setImage(img);
          
+         /*
          img.setColor(Color.BLUE);
          img.fill();
          img.setColor(Color.WHITE);
@@ -32,6 +35,7 @@ public class TitleScreen extends Actor
          img.drawString("Press Space to close dialogue boxes", 130, 270);
          img.drawString("Press Space to continue", 190, 290);        
          setImage(img);
+         */
     }
     public void act()
     {

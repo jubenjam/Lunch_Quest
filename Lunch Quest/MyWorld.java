@@ -183,6 +183,9 @@ public class MyWorld extends World
         title.setText();
         addObject(title, 300, 200);
         
+        ScreenFade screenFade = new ScreenFade();
+        addObject(screenFade, 300, 200);
+        
         timer = new Timer();
         addObject(timer, 50, 30);
     }

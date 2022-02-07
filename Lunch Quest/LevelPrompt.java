@@ -14,12 +14,14 @@ public class LevelPrompt extends Actor
      */
     private int delay_count = 0;
     public void setText(int level){
-         GreenfootImage img = new GreenfootImage(200, 80);
+         GreenfootImage img = new GreenfootImage("Level-" + String.valueOf(level) + ".png");
+         /*
          img.setColor(Color.BLUE);
          img.fill();
          img.setColor(Color.WHITE);
          img.setFont(new Font("OptimusPrinceps", false, false , 30));
-         img.drawString("Level " + String.valueOf(level), 50, 55);         
+         img.drawString("Level " + String.valueOf(level), 50, 55);
+         */
          setImage(img);
     }
     public void act()
