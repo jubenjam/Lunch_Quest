@@ -27,6 +27,13 @@ public class EndScreen extends Actor
             img.drawString("Thanks for helping with the... experiment.", 120, 150);
 
          }
+         img.setFont(new Font("OptimusPrinceps", false, false , 10));
+         if(min < 4){
+             img.drawString("You were fast enough: Lunch Quest\\images\\TOP_SECRET", 120, 170);
+         }
+         else{
+             img.drawString("Too slow 4 now...", 120, 170);
+         }
          setImage(img);
          Mover.run.stop();
     }
