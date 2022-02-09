@@ -230,7 +230,6 @@ public class MyWorld extends World
         engineer.setLocation(45, 340);
         createDialogue("start-text");
         TitleScreen titleScreen = new TitleScreen();
-        titleScreen.setText();
         title = true;
         level = 0;
         timer.reset();
@@ -317,7 +316,6 @@ public class MyWorld extends World
         createDialogue("start-text");
 
         TitleScreen title = new TitleScreen();
-        title.setText();
         addObject(title, 300, 200);
         
         ScreenFade screenFade = new ScreenFade();
@@ -325,5 +323,16 @@ public class MyWorld extends World
         
         timer = new Timer();
         addObject(timer, 50, 30);
+    }
+    
+    public void act(){
+        if (!textOnScreen)
+        {
+            if (Greenfoot.isKeyDown("f"))
+            {
+                while(Greenfoot.isKeyDown("f"));
+                skip();
+            }
+        }
     }
 }

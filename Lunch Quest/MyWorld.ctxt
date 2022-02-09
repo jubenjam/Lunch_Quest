@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=MyWorld
-comment0.text=\n\ Write\ a\ description\ of\ class\ MyWorld\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ MyWorld\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
 comment1.target=MyWorld()
 comment10.params=
@@ -13,7 +13,9 @@ comment13.params=x\ y\ width
 comment13.target=void\ platform2(int,\ int,\ int)
 comment14.params=
 comment14.target=void\ prepare()
-comment14.text=\n\ Prepare\ the\ world\ for\ the\ start\ of\ the\ program.\n\ That\ is\:\ create\ the\ initial\ objects\ and\ add\ them\ to\ the\ world.\n
+comment14.text=\r\n\ Prepare\ the\ world\ for\ the\ start\ of\ the\ program.\r\n\ That\ is\:\ create\ the\ initial\ objects\ and\ add\ them\ to\ the\ world.\r\n
+comment15.params=
+comment15.target=void\ act()
 comment2.params=
 comment2.target=void\ createGoal()
 comment3.params=delay\ on\ off\ x\ y
@@ -30,4 +32,4 @@ comment8.params=
 comment8.target=void\ skip()
 comment9.params=
 comment9.target=void\ endScreen()
-numComments=15
+numComments=16
