@@ -42,8 +42,10 @@ public class TitleScreen extends Actor
         if (Greenfoot.isKeyDown("space"))
         {                        
             while(Greenfoot.isKeyDown("space")){}
-            ((MyWorld)getWorld()).title = false;
-            ((MyWorld)getWorld()).createGoal();
+            MyWorld world = (MyWorld)getWorld();
+            world.title = false;
+            world.addObject(world.timer, 50, 30);
+            world.createGoal();
             getWorld().removeObject(this);
         }    
     }
