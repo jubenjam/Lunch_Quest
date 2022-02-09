@@ -21,10 +21,22 @@ public class Trigger extends Actor
         Actor man = getOneIntersectingObject(Engineer.class);
         if(man != null)
         {
-            ((MyWorld)getWorld()).createGoal();
-            ((MyWorld)getWorld()).createDialogue(text);
-            ((MyWorld)getWorld()).engineer.setLocation(45, 340);
-            getWorld().removeObject(this);
+            ((MyWorld)getWorld()).textOnScreen = true;
+            
+            Actor screenFade = getOneIntersectingObject(ScreenFade.class);
+            int currImg = 15;
+            if (screenFade != null)
+            {
+               currImg = ((ScreenFade)screenFade).play();
+            }
+            
+            if (currImg == 9)
+            {
+                ((MyWorld)getWorld()).createDialogue(text);
+                ((MyWorld)getWorld()).createGoal();
+                ((MyWorld)getWorld()).engineer.setLocation(45, 340);
+                getWorld().removeObject(this);
+            }
         }
         
     }
