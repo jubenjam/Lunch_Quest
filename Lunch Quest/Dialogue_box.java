@@ -13,18 +13,11 @@ public class Dialogue_box extends Actor
      * Act - do whatever the Dialogue_box wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    //set the text of the dialogue box
-    public Profile profile;
     
-    public void setDialogue(String test, Profile profileSet){
-         GreenfootImage img = new GreenfootImage(600, 75);
-         img.setColor(Color.BLUE);
-         img.fill();
-         img.setColor(Color.WHITE);
-         img.setFont(new Font("Dogica Pixel", false, false , 18));
-         img.drawString("Elmer: " + test, 90, 20);
-         setImage(img);
-         profile = profileSet;
+    public void setDialogue(String fn_dialogue){
+         GreenfootImage dialogueBox = new GreenfootImage("./dialogue/dialogue-box.png");
+         dialogueBox.drawImage(new GreenfootImage("./dialogue/" + fn_dialogue + ".png"), 110, 335);
+         setImage(dialogueBox);
          ((MyWorld)getWorld()).textOnScreen = true;
     }
     //
@@ -33,7 +26,6 @@ public class Dialogue_box extends Actor
         if (((MyWorld)getWorld()).title == false && Greenfoot.isKeyDown("space"))
         {                        
             ((MyWorld)getWorld()).textOnScreen = false;
-            getWorld().removeObject(profile);
             if (((MyWorld)getWorld()).level == 6 && ((MyWorld)getWorld()).finaldia == true){
                 while(Greenfoot.isKeyDown("space")){}
                 ((MyWorld)getWorld()).reset();

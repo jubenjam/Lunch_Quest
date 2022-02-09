@@ -49,38 +49,36 @@ public class MyWorld extends World
     public void createDialogue(String text)
     {
         Dialogue_box dialogue_box = new Dialogue_box();
-        addObject(dialogue_box,300,370);
-        Profile profile = new Profile();
-        addObject(profile,35,365);
-        dialogue_box.setDialogue(text, profile);
+        addObject(dialogue_box, 300, 200);
+        dialogue_box.setDialogue(text);
     }
     
     public void win()
     {
         switch (level) {
-            case 1:     createDialogue("I got my lunch! A delicious PB&J sandwich.\nI should probably head to a table to eat.");
+            case 1:     createDialogue("end-level-1-text");
                         break;
             
-            case 2:     createDialogue("I got my lunch! A delicious large pepperoni pizza.\nI should probably head to a table to eat.");
+            case 2:     createDialogue("end-level-2-text");
                         break;
                         
-            case 3:     createDialogue("I got my lunch! An entire thanksgiving feast.\nI should probably head to a table to eat.");
+            case 3:     createDialogue("end-level-3-text");
                         break;
                         
-            case 4:     createDialogue("I got my lunch! A...bottle of glue?\nI should probably head back to a table to eat.");
+            case 4:     createDialogue("end-level-4-text");
                         break;
                         
-            case 5:     createDialogue("I got my lunch! It's... the entire city of\nWashington DC... I should probably head to a table to eat.");
+            case 5:     createDialogue("end-level-5-text");
                         break;
                         
-            case 6:     createDialogue("I got my lunch! It's... wait a second. It's empty!\nNOOOOOOOOOOOOOOOOOOOOOOOOOOOO!");
+            case 6:     createDialogue("end-level-6-text");
                         finaldia = true;
                         break;
         }
         
         if(level != 6){
             Trigger trigger = new Trigger();
-            trigger.setText("It's another day, and now I'm getting hungry...");
+            trigger.setText("restart-text");
             addObject(trigger, 500, 73);
         }
         removeObject(lunch);
@@ -93,7 +91,7 @@ public class MyWorld extends World
     public void reset()
     {
         engineer.setLocation(45, 340);
-        createDialogue("It's time for lunch! Better go grab my lunch bag.");
+        createDialogue("start-text");
         TitleScreen titleScreen = new TitleScreen();
         titleScreen.setText();
         title = true;
@@ -177,7 +175,7 @@ public class MyWorld extends World
 
         engineer = new Engineer();
         addObject(engineer,45,340);
-        createDialogue("It's time for lunch! Better go grab my lunch bag.");
+        createDialogue("start-text");
 
         TitleScreen title = new TitleScreen();
         title.setText();
