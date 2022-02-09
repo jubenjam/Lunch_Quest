@@ -66,6 +66,6 @@ public class Engineer extends Mover
         setLocation(45,340);
         world.eraseLasers();
         world.createLasers();
-        world.createDialogue("Ouch! I need to be more careful.");
+        world.createDialogue("ouch-text");
     }
 }
