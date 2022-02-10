@@ -64,8 +64,6 @@ public class Engineer extends Mover
     {
         MyWorld world = (MyWorld)getWorld();
         setLocation(45,340);
-        world.eraseLasers();
-        world.createLasers();
         world.createDialogue("ouch-text");
     }
 }

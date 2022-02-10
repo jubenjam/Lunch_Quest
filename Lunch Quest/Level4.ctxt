@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Level4
+comment0.text=\n\ Write\ a\ description\ of\ class\ Level4\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=oldTimer
+comment1.target=Level4(Timer)
+comment1.text=\n\ Constructor\ for\ objects\ of\ class\ Level4.\n\ \n
+comment2.params=oldTimer
+comment2.target=void\ prepareLevel(Timer)
+comment3.params=
+comment3.target=void\ createLasers()
+comment4.params=
+comment4.target=void\ win()
+numComments=5

@@ -16,11 +16,28 @@ public class Timer extends Actor
     private int seconds = 0;
     private int minutes = 0;
     
+    public Timer()
+    {
+        super();
+    }
+    
+    public Timer(Timer oldTimer)
+    {
+        this.frames = oldTimer.getFrames();
+        this.seconds = oldTimer.getSeconds();
+        this.minutes = oldTimer.getMinutes();
+    }
+    
     public void reset()
     {
         frames = 0;
         seconds = 0;
         minutes = 0;
+    }
+    
+    public int getFrames()
+    {
+        return frames;
     }
     
     public int getSeconds()

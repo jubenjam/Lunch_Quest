@@ -38,4 +38,10 @@ public class ScreenFade extends AnimatedActor
         
         return currentImage;
     }
+    
+    public void fadeIn()
+    {
+        playAnimation = true;
+        currentImage = 9;
+    }
 }
