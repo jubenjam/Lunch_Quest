@@ -193,4 +193,15 @@ public class MyWorld extends World
             default:    break;
         }
     }
+    
+    public void act(){
+        if (!textOnScreen)
+        {
+            if (Greenfoot.isKeyDown("f"))
+            {
+                while(Greenfoot.isKeyDown("f"));
+                skip();
+            }
+        }
+    }
 }

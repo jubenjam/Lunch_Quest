@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Laser
-comment0.text=\n\ Write\ a\ description\ of\ class\ Laser\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Laser\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=startDelay\ onDuration\ offDuration
 comment1.target=Laser(int,\ int,\ int)
 comment2.params=
@@ -11,12 +11,12 @@ comment4.params=
 comment4.target=void\ advanceImage()
 comment5.params=
 comment5.target=boolean\ delayStart()
-comment5.text=\n\ \ Returns\ true\ while\ delaying,\ false\ when\ delay\ is\ up.\n
+comment5.text=\r\n\ \ Returns\ true\ while\ delaying,\ false\ when\ delay\ is\ up.\r\n
 comment6.params=
 comment6.target=boolean\ advanceOffBuffer()
 comment7.params=
 comment7.target=boolean\ advanceOnBuffer()
-comment7.text=\ \n\ \ advanceOnBuffer()\ returns\ true\ for\ the\ duration\ of\ onDuration\ and\n\ \ returns\ false\ when\ it\ resets.\n
+comment7.text=\ \r\n\ \ advanceOnBuffer()\ returns\ true\ for\ the\ duration\ of\ onDuration\ and\r\n\ \ returns\ false\ when\ it\ resets.\r\n
 comment8.params=
 comment8.target=void\ nextKey()
 comment9.params=
