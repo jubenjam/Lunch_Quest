@@ -33,9 +33,7 @@ public class Trigger extends Actor
             if (currImg == 9)
             {
                 ((MyWorld)getWorld()).createDialogue(text);
-                ((MyWorld)getWorld()).createGoal();
-                ((MyWorld)getWorld()).engineer.setLocation(45, 340);
-                getWorld().removeObject(this);
+                ((MyWorld)getWorld()).nextLevel();
             }
         }
         

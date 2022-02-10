@@ -24,11 +24,11 @@ public class Dialogue_box extends Actor
     public void act()
     {
         if (((MyWorld)getWorld()).title == false && Greenfoot.isKeyDown("space"))
-        {                        
+        {
             ((MyWorld)getWorld()).textOnScreen = false;
             if (((MyWorld)getWorld()).level == 6 && ((MyWorld)getWorld()).finaldia == true){
-                while(Greenfoot.isKeyDown("space")){}
-                ((MyWorld)getWorld()).endScreen();
+                while(Greenfoot.isKeyDown("space"));
+                ((MyWorld)getWorld()).nextLevel();
                 ((MyWorld)getWorld()).finaldia = false;
             }
             getWorld().removeObject(this);
