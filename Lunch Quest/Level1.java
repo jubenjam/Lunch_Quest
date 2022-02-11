@@ -30,7 +30,7 @@ public class Level1 extends MyWorld
         screenFade = new ScreenFade();
         addObject(screenFade, 300, 200);
 
-        //timer = new Timer();
+        timer = new Timer();
         addObject(timer, 50, 30);
 
         ground();
