@@ -11,7 +11,7 @@ public class MyWorld extends World
 {
     public Lunch lunch;
     public Engineer engineer;
-    public Timer timer;
+    public Timer timer = new Timer();
     public ScreenFade screenFade;
     
     public boolean textOnScreen = false;
@@ -27,8 +27,6 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1, false);
-        
-        prepare();
     }
     
     public void act(){
@@ -48,10 +46,6 @@ public class MyWorld extends World
      */
     protected void prepare()
     {
-        laserList = new ArrayList<Laser>();
-        
-        screenFade = new ScreenFade();
-        addObject(screenFade, 300, 200);
     }
     
     public void started()
@@ -166,7 +160,6 @@ public class MyWorld extends World
                         break;
                         
             case 1:     Greenfoot.setWorld(new Level1());
-                        screenFade.fadeIn();
                         break;
                         
             case 2:     Greenfoot.setWorld(new Level2(timer));

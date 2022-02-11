@@ -20,14 +20,19 @@ public class Level1 extends MyWorld
         
         level = 1;
         
-        prepareLevel();
+        prepare();
     }
     
-    public void prepareLevel()
+    public void prepare()
     {
-        timer = new Timer();
+        laserList = new ArrayList<Laser>();
+
+        screenFade = new ScreenFade();
+        addObject(screenFade, 300, 200);
+
+        //timer = new Timer();
         addObject(timer, 50, 30);
-        
+
         ground();
         platform2(16, 250, 16);
         platform2(96, 113, 4);
@@ -42,13 +47,13 @@ public class Level1 extends MyWorld
         addObject(single2,16,180);
         Table table = new Table();
         addObject(table,500,73);
-        
+
         createLasers();
-        
+
         createGoal(100, 200);
-        
+
         renderLevelPrompt();
-        
+
         engineer = new Engineer();
         addObject(engineer,45,340);
         createDialogue("start-text");
