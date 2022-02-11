@@ -69,7 +69,7 @@ public class Level6 extends MyWorld
         
         createLasers();
         
-        createGoal(100, 200);
+        createGoal(500, 40);
         
         renderLevelPrompt();
         music.pause();
