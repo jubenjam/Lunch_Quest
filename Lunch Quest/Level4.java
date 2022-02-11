@@ -38,7 +38,12 @@ public class Level4 extends MyWorld
         platform2(96, 113, 4);
         platform2(288, 113, 4);
         platform2(480, 113, 4);
-
+        List<Left> list = getObjectsAt(288, 113, Left.class);
+        if(!list.isEmpty()){
+            removeObject(list.get(0));
+            Left left = new Left();
+            addObject(left, 288, 218);
+        }
         Console console = new Console();
         addObject(console,15,355);
         Single single = new Single();
@@ -55,6 +60,10 @@ public class Level4 extends MyWorld
         renderLevelPrompt();
         
         engineer = new Engineer();
+        
+        super.screenFade = new ScreenFade();
+        addObject(screenFade, 300, 200);
+        
         addObject(engineer,45,340);
         createDialogue("start-text");
     }

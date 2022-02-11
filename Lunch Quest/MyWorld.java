@@ -99,6 +99,13 @@ public class MyWorld extends World
         Greenfoot.setWorld(new TitleWorld());
     }
     
+    public void eraseLasers(){
+        for (Laser laser : laserList){
+            removeObject(laser);
+        }
+        laserList.clear();
+    }
+    
     protected void ground()
     {
         TopLeft topLeft = new TopLeft();
