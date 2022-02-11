@@ -17,12 +17,12 @@ public class Level3 extends MyWorld
     public Level3(Timer oldTimer)
     {
         super(600, 400, 1, false);
-        
+
         level = 3;
-        
+
         prepareLevel(oldTimer);
     }
-    
+
     public void prepareLevel(Timer oldTimer)
     {
         timer = new Timer(oldTimer);
@@ -33,7 +33,12 @@ public class Level3 extends MyWorld
         platform2(96, 113, 4);
         platform2(288, 113, 4);
         platform2(480, 113, 4);
-
+        List<Left> list = getObjectsAt(288, 113, Left.class);
+        if(!list.isEmpty()){
+            removeObject(list.get(0));
+            Left left = new Left();
+            addObject(left, 288, 218);
+        }
         Console console = new Console();
         addObject(console,15,355);
         Single single = new Single();
@@ -57,22 +62,23 @@ public class Level3 extends MyWorld
         addObject(engineer,45,340);
         createDialogue("start-text");
     }
-    
+
     public void createLasers()
     {
-        LaserBuilder(0, 20, 15, 45,305);
-        LaserBuilder(0, 20, 15, 414,305);
-        LaserBuilder(0, 20, 20, 484,168);
-        LaserBuilder(0, 20, 20, 388,168);
-        LaserBuilder(20, 20, 20, 288,168);
-        LaserBuilder(0, 20, 20, 192,168);
-        LaserBuilder(20, 20, 20, 96,168);
+        LaserBuilder(0, 15, 15, 45,305);
+        LaserBuilder(0, 15, 15, 414,305);
+        LaserBuilder(0, 15, 15, 484,168);
+        LaserBuilder(0, 15, 15, 388,168);
+        LaserBuilder(10, 15, 15, 356,168);
+        LaserBuilder(20, 15, 15, 324,168);
+        LaserBuilder(0, 15, 15, 192,168);
+        LaserBuilder(20, 15, 15, 96,168);
     }
-    
+
     protected void win()
     {
         createDialogue("end-level-" + level + "-text");
-        
+
         Trigger trigger = new Trigger();
         trigger.setText("restart-text");
         addObject(trigger, 500, 73);

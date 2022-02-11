@@ -50,13 +50,20 @@ public class Level6 extends MyWorld
             Mid mid = new Mid();
             addObject(mid, 304, 353);
         }
-        
+        List<Mid> list4 = getObjectsAt(240, 250, Mid.class);
+        if(!list4.isEmpty()){
+            removeObject(list4.get(0));
+        }
+        Mid mid = new Mid();
+        addObject(mid, 304, 331);
         Console console = new Console();
         addObject(console,15,355);
         Single single = new Single();
         addObject(single,585,310);
         Single single2 = new Single();
         addObject(single2,16,180);
+        Single single3 = new Single();
+        addObject(single3, 410,168);
         Table table = new Table();
         addObject(table,500,73);
         

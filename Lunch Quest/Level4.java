@@ -33,12 +33,24 @@ public class Level4 extends MyWorld
         platform2(96, 113, 4);
         platform2(288, 113, 4);
         platform2(480, 113, 4);
+        
         List<Left> list = getObjectsAt(288, 113, Left.class);
         if(!list.isEmpty()){
             removeObject(list.get(0));
-            Left left = new Left();
-            addObject(left, 288, 218);
         }
+        List<Mid> list2 = getObjectsAt(272, 250, Mid.class);
+        if(!list2.isEmpty()){
+            removeObject(list2.get(0));
+            Mid mid = new Mid();
+            addObject(mid, 272, 353);
+        }
+        List<Mid> list3 = getObjectsAt(304, 250, Mid.class);
+        if(!list3.isEmpty()){
+            removeObject(list3.get(0));
+            Mid mid = new Mid();
+            addObject(mid, 304, 353);
+        }
+
         Console console = new Console();
         addObject(console,15,355);
         Single single = new Single();
@@ -65,7 +77,10 @@ public class Level4 extends MyWorld
     
     public void createLasers()
     {
-        LaserBuilder(0, 15, 15, 45,305);
+        LaserBuilder(0, 10, 10, 45,305);
+        LaserBuilder(5, 10, 10, 77,305);
+        LaserBuilder(10, 10, 10, 109,305);
+        LaserBuilder(15, 10, 10, 141,305);
         LaserBuilder(0, 15, 15, 414,305);
         LaserBuilder(0, 15, 15, 484,168);
         LaserBuilder(0, 15, 15, 388,168);
