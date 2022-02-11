@@ -27,9 +27,6 @@ public class Level3 extends MyWorld
     {
         laserList = new ArrayList<Laser>();
         
-        screenFade = new ScreenFade();
-        addObject(screenFade, 300, 200);
-        
         timer = new Timer(oldTimer);
         addObject(timer, 50, 30);
         
@@ -57,15 +54,15 @@ public class Level3 extends MyWorld
         
         createGoal(100, 200);
         
-        renderLevelPrompt();
+        //renderLevelPrompt();
         
         engineer = new Engineer();
         
-        super.screenFade = new ScreenFade();
-        addObject(screenFade, 300, 200);
+        //super.screenFade = new ScreenFade();
+        //addObject(screenFade, 300, 200);
         
         addObject(engineer,45,340);
-        createDialogue("start-text");
+        //createDialogue("start-text");
     }
 
     public void createLasers()
@@ -76,8 +73,10 @@ public class Level3 extends MyWorld
         LaserBuilder(0, 15, 15, 388,168);
         LaserBuilder(10, 15, 15, 356,168);
         LaserBuilder(20, 15, 15, 324,168);
-        LaserBuilder(0, 15, 15, 192,168);
-        LaserBuilder(20, 15, 15, 96,168);
+        LaserBuilder(0, 15, 10, 192,168);
+        LaserBuilder(7, 15, 10, 160,168);
+        LaserBuilder(14, 15, 10, 128,168);
+        LaserBuilder(21, 15, 10, 96,168);
     }
 
     protected void win()

@@ -27,9 +27,6 @@ public class Level1 extends MyWorld
     {
         laserList = new ArrayList<Laser>();
 
-        screenFade = new ScreenFade();
-        addObject(screenFade, 300, 200);
-
         timer = new Timer();
         addObject(timer, 50, 30);
 
