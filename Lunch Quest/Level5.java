@@ -55,19 +55,26 @@ public class Level5 extends MyWorld
             Mid mid = new Mid();
             addObject(mid, 304, 353);
         }
-
+        List<Mid> list4 = getObjectsAt(240, 250, Mid.class);
+        if(!list4.isEmpty()){
+            removeObject(list4.get(0));
+        }
+        Mid mid = new Mid();
+        addObject(mid, 304, 331);
         Console console = new Console();
         addObject(console,15,355);
         Single single = new Single();
         addObject(single,585,310);
         Single single2 = new Single();
         addObject(single2,16,180);
+        Single single3 = new Single();
+        addObject(single3, 410,168);
         Table table = new Table();
         addObject(table,500,73);
         
         createLasers();
         
-        createGoal(100, 200);
+        createGoal(370, 340);
         
         renderLevelPrompt();
         
@@ -88,9 +95,8 @@ public class Level5 extends MyWorld
         LaserBuilder(15, 10, 10, 141,305);
         LaserBuilder(0, 15, 15, 414,305);
         LaserBuilder(0, 15, 15, 484,168);
-        LaserBuilder(0, 15, 15, 388,168);
-        LaserBuilder(10, 15, 15, 356,168);
-        LaserBuilder(20, 15, 15, 324,168);
+        LaserBuilder(0, 15000, 0, 328,305);
+        LaserBuilder(0, 15000, 0, 324,168);
         LaserBuilder(0, 15, 15, 192,168);
         LaserBuilder(20, 15, 15, 96,168);
     }

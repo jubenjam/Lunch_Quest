@@ -11,7 +11,7 @@ public class MyWorld extends World
 {
     public Lunch lunch;
     public Engineer engineer;
-    public Timer timer = new Timer();
+    public static Timer timer;
     public ScreenFade screenFade;
     
     public boolean textOnScreen = false;
