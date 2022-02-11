@@ -51,6 +51,10 @@ public class Level2 extends MyWorld
         music.playLoop();
         
         engineer = new Engineer();
+                
+        super.screenFade = new ScreenFade();
+        addObject(screenFade, 300, 200);
+        
         addObject(engineer,45,340);
         createDialogue("start-text");
     }

@@ -64,6 +64,20 @@ public class Engineer extends Mover
     {
         MyWorld world = (MyWorld)getWorld();
         setLocation(45,340);
+        world.eraseLasers();
+        switch(world.level){
+            case 1: ((Level1)world).createLasers();
+                    break;
+            case 2: ((Level2)world).createLasers();
+                    break;
+            case 3: ((Level3)world).createLasers();
+                    break;
+            case 4: ((Level4)world).createLasers();
+                    break;
+            case 5: ((Level5)world).createLasers();
+                    break;
+            default: break;
+        }
         world.createDialogue("ouch-text");
     }
 }

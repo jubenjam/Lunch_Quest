@@ -50,6 +50,10 @@ public class Level3 extends MyWorld
         renderLevelPrompt();
         
         engineer = new Engineer();
+        
+        super.screenFade = new ScreenFade();
+        addObject(screenFade, 300, 200);
+        
         addObject(engineer,45,340);
         createDialogue("start-text");
     }

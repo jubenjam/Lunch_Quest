@@ -33,6 +33,23 @@ public class Level5 extends MyWorld
         platform2(96, 113, 4);
         platform2(288, 113, 4);
         platform2(480, 113, 4);
+        
+        List<Left> list = getObjectsAt(288, 113, Left.class);
+        if(!list.isEmpty()){
+            removeObject(list.get(0));
+        }
+        List<Mid> list2 = getObjectsAt(272, 250, Mid.class);
+        if(!list2.isEmpty()){
+            removeObject(list2.get(0));
+            Mid mid = new Mid();
+            addObject(mid, 272, 353);
+        }
+        List<Mid> list3 = getObjectsAt(304, 250, Mid.class);
+        if(!list3.isEmpty()){
+            removeObject(list3.get(0));
+            Mid mid = new Mid();
+            addObject(mid, 304, 353);
+        }
 
         Console console = new Console();
         addObject(console,15,355);
@@ -50,6 +67,10 @@ public class Level5 extends MyWorld
         renderLevelPrompt();
         
         engineer = new Engineer();
+        
+        super.screenFade = new ScreenFade();
+        addObject(screenFade, 300, 200);
+        
         addObject(engineer,45,340);
         createDialogue("start-text");
     }

@@ -49,9 +49,7 @@ public class MyWorld extends World
     protected void prepare()
     {
         laserList = new ArrayList<Laser>();
-        
-        screenFade = new ScreenFade();
-        addObject(screenFade, 300, 200);
+
     }
     
     public void started()
@@ -103,6 +101,13 @@ public class MyWorld extends World
     public void reset()
     {
         Greenfoot.setWorld(new TitleWorld());
+    }
+    
+    public void eraseLasers(){
+        for (Laser laser : laserList){
+            removeObject(laser);
+        }
+        laserList.clear();
     }
     
     protected void ground()
@@ -166,7 +171,7 @@ public class MyWorld extends World
                         break;
                         
             case 1:     Greenfoot.setWorld(new Level1());
-                        screenFade.fadeIn();
+                        //screenFade.fadeIn();
                         break;
                         
             case 2:     Greenfoot.setWorld(new Level2(timer));
