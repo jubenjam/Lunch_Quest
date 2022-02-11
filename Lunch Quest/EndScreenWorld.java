@@ -22,10 +22,10 @@ public class EndScreenWorld extends MyWorld
         
         level = 7;
         
-        prepareLevel(timer);
+        prepare(timer);
     }
     
-    public void prepareLevel(Timer timer)
+    public void prepare(Timer timer)
     {
         int min = timer.getMinutes();
         int sec = timer.getSeconds();

@@ -20,10 +20,10 @@ public class Level4 extends MyWorld
         
         level = 4;
         
-        prepareLevel(oldTimer);
+        prepare(oldTimer);
     }
     
-    public void prepareLevel(Timer oldTimer)
+    public void prepare(Timer oldTimer)
     {
         laserList = new ArrayList<Laser>();
         

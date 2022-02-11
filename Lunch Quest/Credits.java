@@ -22,10 +22,10 @@ public class Credits extends MyWorld
         
         level = 8;
         
-        prepareLevel();
+        prepare();
     }
     
-    public void prepareLevel()
+    public void prepare()
     {        
         bg.setColor(Color.WHITE);
         bg.setFont(new Font("OptimusPrinceps", false, false , 30));
