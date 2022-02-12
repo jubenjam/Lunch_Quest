@@ -88,8 +88,10 @@ public class Level4 extends MyWorld
         LaserBuilder(0, 15, 15, 388,168);
         LaserBuilder(10, 15, 15, 356,168);
         LaserBuilder(20, 15, 15, 324,168);
-        LaserBuilder(0, 15, 15, 192,168);
-        LaserBuilder(20, 15, 15, 96,168);
+        LaserBuilder(0, 15, 10, 192,168);
+        LaserBuilder(7, 15, 10, 160,168);
+        LaserBuilder(14, 15, 10, 128,168);
+        LaserBuilder(21, 15, 10, 96,168);
     }
     
     protected void win()
